@@ -789,7 +789,9 @@ public class ServiceView extends ResizeComposite implements ServicePresenter.Dis
                 break;
             }
             case Error: {
-                entityName = rd.getCriteriaInfo().getMetricName();
+        	    String label = "undefined";
+                label = (String) ConsoleUtil.constants.metricDefNamesMap().get(rd.getCriteriaInfo().getMetricName());
+                entityName= label;
                 break;
             }
             default: {

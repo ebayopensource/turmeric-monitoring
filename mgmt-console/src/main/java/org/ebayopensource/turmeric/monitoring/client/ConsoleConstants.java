@@ -607,4 +607,8 @@ public interface ConsoleConstants extends Constants {
 	@DefaultStringValue("Confirm")
 	public String confirm();
 	
+	/*
+	 * Metric Definitions
+	 */
+	public Map metricDefNamesMap();
 }

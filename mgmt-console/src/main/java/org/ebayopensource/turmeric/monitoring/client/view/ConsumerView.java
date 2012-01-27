@@ -638,11 +638,15 @@ public class ConsumerView extends Composite implements ConsumerPresenter.Display
 
                         Widget[] rowData = new Widget[5];
 
-                        if (isOperation)
+                        if (isOperation) {
                             rowData[0] = new Label(rd.getCriteriaInfo().getOperationName());
-                        else
+                        }  else {
                             rowData[0] = new Label(rd.getCriteriaInfo().getServiceName());
-                        rowData[1] = new Label(rd.getCriteriaInfo().getMetricName());
+                        }
+                        String label = "undefined";
+                        label = (String) ConsoleUtil.constants.metricDefNamesMap().get(rd.getCriteriaInfo().getMetricName());
+                        rowData[1] = new Label(label);
+                        
                         rowData[2] = new Label(NumberFormat.getDecimalFormat().format(
                                         Double.parseDouble(rd.getCount1())));
                         rowData[3] = new Label(NumberFormat.getDecimalFormat().format(
@@ -675,7 +679,10 @@ public class ConsumerView extends Composite implements ConsumerPresenter.Display
                         MetricGroupData rd = result.getReturnData().get(i);
 
                         Widget[] rowData = new Widget[4];
-                        rowData[0] = new Label(rd.getCriteriaInfo().getMetricName());
+                        String label = "undefined";
+                        label = (String) ConsoleUtil.constants.metricDefNamesMap().get(rd.getCriteriaInfo().getMetricName());
+                        
+                        rowData[0] = new Label(label);
                         rowData[1] = new Label(NumberFormat.getDecimalFormat().format(
                                         Double.parseDouble(rd.getCount1())));
                         rowData[2] = new Label(NumberFormat.getDecimalFormat().format(
